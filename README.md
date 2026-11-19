@@ -1,58 +1,226 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Menukang
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Pembangunan Sistem Website C2C Marketplace Jasa Tukang Berbasis Web Menggunakan Sistem Filter dan Pemetaan Lokasi di Wilayah Pekanbaru**
 
-## About Laravel
+Projek mata kuliah **Interaksi Manusia dan Komputer**
+Program Studi Teknik Informatika, Jurusan Teknologi Informasi, T.A. 2025/2026
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tentang Projek
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Di Kota Pekanbaru, jasa tukang bangunan (renovasi, perbaikan atap, dinding, lantai, pengecoran) dan tukang kebun (pemangkasan pohon, potong rumput, penanaman bibit, pembuatan taman) masih dicari secara informal. Pelanggan biasanya mencari lewat rekomendasi keluarga, tetangga, grup WhatsApp, media sosial, atau perantara. Harga disepakati secara lisan dan tidak ada catatan kesepakatan tertulis.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Dari pengumpulan data terhadap tukang bangunan dan tukang kebun, ditemukan beberapa masalah:
 
-## Learning Laravel
+- Pelanggan sulit menilai keahlian, pengalaman, dan jangkauan wilayah tukang, sementara tukang hanya mendapat panggilan dari lingkungan sekitarnya.
+- Jarak dan jangkauan layanan menjadi sumber masalah, karena Pekanbaru terdiri dari 15 kecamatan dengan wilayah yang cukup luas.
+- Kondisi lapangan sering berbeda dari foto yang dikirim pelanggan.
+- Harga tidak memiliki acuan, dan belum jelas siapa yang menanggung material, alat, dan biaya survei.
+- Tidak ada catatan kesepakatan yang dapat dirujuk kedua pihak saat pekerjaan tertunda atau bermasalah.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Menukang** adalah marketplace C2C (*consumer to consumer*) yang mempertemukan pelanggan dengan tukang secara langsung. Pelanggan dapat mencari tukang berdasarkan jenis keahlian dan lokasi, sedangkan tukang dapat menjangkau pelanggan di luar lingkungan sekitarnya.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Fitur yang Sudah Tersedia
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- **Registrasi dan login** dengan tiga peran: **Admin**, **Tukang**, dan **Pelanggan**.
+- **Dashboard terpisah** untuk setiap peran.
+- **Profil tukang**: jenis tukang, area layanan, pengalaman, dan status aktif.
+- **Admin** dapat mengelola data pengguna dan jenis tukang (tambah, lihat, ubah, hapus), lengkap dengan pencarian dan filter.
 
-## Agentic Development
+### Fitur yang Direncanakan
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- Filter tukang berdasarkan jenis layanan, area, dan kriteria lainnya.
+- Pemetaan lokasi tukang dan pelanggan di wilayah Pekanbaru.
+
+## Anggota Kelompok
+
+**Kelompok 11, Kelas 2 TI E**
+
+| No | Nama | NIM |
+|---|---|---|
+| 1 | Chiko Maulana Ahmad | 2555301041 |
+| 2 | Reynata Handra Vilano | 2555301167 |
+| 3 | Zalva Zahiyah Manda Davia Putri | 2555301209 |
+
+**Dosen Pengampu:** Rika Perdana Sari, S.T., M.Eng.
+
+## Teknologi yang Digunakan
+
+| Bagian | Teknologi |
+|---|---|
+| Backend | Laravel 13 (PHP 8.3 ke atas) |
+| Frontend | Blade, Tailwind CSS 4, Flowbite 4 |
+| Ikon | Font Awesome 7 dan Flowbite Icons |
+| Database | SQLite (bawaan) atau MySQL |
+| Build tool | Vite |
+| Testing | Pest |
+
+---
+
+## Cara Instalasi
+
+### 1. Persiapan
+
+Pastikan perangkat lunak berikut sudah terpasang di komputer Anda:
+
+| Perangkat Lunak | Versi Minimal | Cara Cek |
+|---|---|---|
+| PHP | 8.3 | `php -v` |
+| Composer | 2.x | `composer -V` |
+| Node.js | 20.19 atau 22.12 | `node -v` |
+| npm | (ikut Node.js) | `npm -v` |
+| Git | (bebas) | `git --version` |
+
+> **Pengguna Windows:** cara paling mudah adalah memakai [Laragon](https://laragon.org/), karena PHP, Composer, Node.js, dan MySQL sudah tersedia di dalamnya. Letakkan projek di folder `C:\laragon\www`.
+
+Pastikan juga ekstensi PHP berikut aktif di `php.ini`: `pdo_sqlite` (atau `pdo_mysql` jika memakai MySQL), `mbstring`, `openssl`, `fileinfo`, dan `curl`.
+
+### 2. Clone Repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/ChikoID/Menukang.git
+cd Menukang
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 3. Install Dependency PHP
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Siapkan File `.env`
 
-## Code of Conduct
+Salin file contoh konfigurasi, lalu buat application key:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+> Di Command Prompt Windows, gunakan `copy .env.example .env` sebagai pengganti `cp`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Jika ingin nama aplikasi tampil sebagai "Menukang", ubah baris berikut di `.env`:
 
-## License
+```env
+APP_NAME=Menukang
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Siapkan Database
+
+Pilih **salah satu** cara di bawah ini.
+
+#### Pilihan A: SQLite (paling mudah, tanpa server database)
+
+Konfigurasi bawaan sudah memakai SQLite. Anda cukup membuat file database kosong:
+
+```bash
+# Linux / macOS / Git Bash
+touch database/database.sqlite
+
+# Windows PowerShell
+New-Item database/database.sqlite
+```
+
+#### Pilihan B: MySQL
+
+1. Buat database baru, misalnya `menukang`, melalui phpMyAdmin, HeidiSQL, atau terminal MySQL.
+2. Ubah bagian database di `.env` menjadi seperti ini (hapus tanda `#` di depannya):
+
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=menukang
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+   Sesuaikan `DB_USERNAME` dan `DB_PASSWORD` dengan pengaturan MySQL Anda. Di Laragon, bawaannya adalah `root` tanpa password.
+
+### 6. Jalankan Migrasi dan Seeder
+
+Perintah ini membuat semua tabel sekaligus mengisi akun awal:
+
+```bash
+php artisan migrate --seed
+```
+
+Seeder akan membuat akun berikut:
+
+| Peran | Email | Password |
+|---|---|---|
+| Admin | `admin@menukang.test` | `password` |
+| Pengguna uji (tanpa peran) | `test@example.com` | `password` |
+
+> ⚠️ **Penting:** akun di atas hanya untuk keperluan pengembangan. Segera ganti password jika aplikasi dipasang di server yang dapat diakses publik.
+
+Untuk membuat ulang akun admin saja, tanpa mengulang semua seeder, jalankan:
+
+```bash
+php artisan db:seed --class=AdminSeeder
+```
+
+### 7. Install Dependency Frontend
+
+```bash
+npm install
+```
+
+### 8. Jalankan Aplikasi
+
+**Mode pengembangan** (tampilan langsung diperbarui saat file diubah). Jalankan dua perintah ini di **dua terminal terpisah**:
+
+```bash
+# Terminal 1: server Laravel
+php artisan serve
+
+# Terminal 2: server Vite untuk CSS dan JavaScript
+npm run dev
+```
+
+Kemudian buka **http://localhost:8000** di browser.
+
+**Mode build** (tanpa perlu menjalankan `npm run dev`):
+
+```bash
+npm run build
+php artisan serve
+```
+
+> **Pengguna Laragon:** setelah menekan tombol **Start All**, aplikasi bisa dibuka melalui **http://menukang.test** tanpa `php artisan serve`. Anda tetap perlu menjalankan `npm run dev` atau `npm run build` terlebih dahulu.
+
+### 9. Login
+
+Buka halaman **/login**, lalu masuk dengan akun admin dari langkah 6. Anda akan diarahkan ke dashboard admin.
+
+Akun tukang dan pelanggan dapat dibuat melalui halaman **/register**, atau oleh admin melalui menu **Pengguna**.
+
+---
+
+## Cara Cepat (Instalasi Otomatis)
+
+Projek ini menyediakan script yang menjalankan langkah 3, 4, 6 (tanpa seeder), 7, dan build frontend sekaligus:
+
+```bash
+composer run setup
+php artisan db:seed
+```
+
+Jika memakai SQLite, buat dulu file `database/database.sqlite` seperti pada langkah 5 sebelum menjalankan perintah di atas.
+
+## Menjalankan Test
+
+```bash
+php artisan test
+```
+
+## Mengatasi Masalah yang Sering Terjadi
+
+| Masalah | Solusi |
+|---|---|
+| `Unable to locate file in Vite manifest` | Jalankan `npm run build`, atau biarkan `npm run dev` tetap berjalan. |
+| `No application encryption key has been specified` | Jalankan `php artisan key:generate`. |
+| `Database file at path [...] does not exist` | Buat file `database/database.sqlite` (lihat langkah 5, pilihan A). |
+| `SQLSTATE[HY000] [1049] Unknown database` | Database MySQL belum dibuat, atau nama di `DB_DATABASE` tidak sesuai. |
+| `could not find driver` | Aktifkan ekstensi `pdo_sqlite` atau `pdo_mysql` di `php.ini`, lalu restart terminal atau Laragon. |
+| Tampilan berantakan atau tidak ada style | Pastikan `npm run dev` sedang berjalan atau `npm run build` sudah dijalankan, lalu muat ulang halaman dengan `Ctrl + F5`. |
+| Perubahan `.env` tidak terbaca | Jalankan `php artisan config:clear`. |
