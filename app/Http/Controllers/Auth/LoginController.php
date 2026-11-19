@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +27,8 @@ class LoginController extends Controller
             'password.string' => 'Kata sandi harus berupa teks.',
         ]);
 
-        if (!Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']], $request->boolean('remember'))) {
-            if (!User::query()->where('email', $validated['email'])->exists()) {
+        if (! Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']], $request->boolean('remember'))) {
+            if (! User::query()->where('email', $validated['email'])->exists()) {
                 return back()->withErrors(['email' => 'Alamat email tidak terdaftar.']);
             }
 
@@ -36,7 +37,21 @@ class LoginController extends Controller
 
         $user = Auth::user();
         $request->session()->regenerate();
+
         return $this->redirectUser($user);
+    }
+
+    /**
+     * Log the user out and invalidate the session.
+     */
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 
     private function redirectUser(User $user)

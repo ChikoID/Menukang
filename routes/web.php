@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -7,17 +11,27 @@ Route::get('/', function () {
 });
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('login', [\App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [LoginController::class, 'login']);
 
-    Route::get('register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
-    Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
+    Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('register', [RegisterController::class, 'register']);
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::middleware(['auth', 'roles:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+    Route::get('dashboard', [DashboardController::class, 'admin'])->name('dashboard');
+    Route::resource('users', UserController::class);
+});
+
+Route::middleware(['auth', 'roles:tukang'])->prefix('tukang')->name('tukang.')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'tukang'])->name('dashboard');
+});
+
+Route::middleware(['auth', 'roles:pelanggan'])->prefix('pelanggan')->name('pelanggan.')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'pelanggan'])->name('dashboard');
 });
