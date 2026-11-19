@@ -11,6 +11,8 @@
         @endif{{ config('app.name', 'Menukang') }}
     </title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
