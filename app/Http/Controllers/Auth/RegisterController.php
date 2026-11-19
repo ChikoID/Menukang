@@ -5,17 +5,21 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Worker;
+use App\Models\WorkerType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class RegisterController extends Controller
 {
-    function showRegistrationForm()
+    public function showRegistrationForm(): View
     {
-        return view('auth.register');
+        return view('auth.register', [
+            'workerTypes' => WorkerType::query()->orderBy('name')->get(['id', 'name']),
+        ]);
     }
 
-    function register(Request $request)
+    public function register(Request $request)
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -60,7 +64,7 @@ class RegisterController extends Controller
             'password' => bcrypt($validated['password']),
         ]);
 
-        if($user->role === 'tukang') {
+        if ($user->role === 'tukang') {
             Worker::create([
                 'user_id' => $user->id,
                 'worker_type_id' => $validated['worker_type_id'],
@@ -71,6 +75,7 @@ class RegisterController extends Controller
         }
 
         Auth::login($user);
+
         return $this->redirectUser($user);
     }
 
