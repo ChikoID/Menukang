@@ -2,7 +2,7 @@
 
 **Pembangunan Sistem Website C2C Marketplace Jasa Tukang Berbasis Web Menggunakan Sistem Filter dan Pemetaan Lokasi di Wilayah Pekanbaru**
 
-Projek mata kuliah **Interaksi Manusia dan Komputer**
+Projek mata kuliah **Interaksi Manusia dan Komputer** Dan **Bengkel Pemrograman Framework**
 Program Studi Teknik Informatika, Jurusan Teknologi Informasi, T.A. 2025/2026
 
 ## Tentang Projek
@@ -41,18 +41,15 @@ Dari pengumpulan data terhadap tukang bangunan dan tukang kebun, ditemukan beber
 | 2 | Reynata Handra Vilano | 2555301167 |
 | 3 | Zalva Zahiyah Manda Davia Putri | 2555301209 |
 
-**Dosen Pengampu:** Rika Perdana Sari, S.T., M.Eng.
-
 ## Teknologi yang Digunakan
 
 | Bagian | Teknologi |
 |---|---|
 | Backend | Laravel 13 (PHP 8.3 ke atas) |
 | Frontend | Blade, Tailwind CSS 4, Flowbite 4 |
-| Ikon | Font Awesome 7 dan Flowbite Icons |
-| Database | SQLite (bawaan) atau MySQL |
+| Icon | Font Awesome 7 dan Flowbite Icons |
+| Database | MySQL |
 | Build tool | Vite |
-| Testing | Pest |
 
 ---
 
