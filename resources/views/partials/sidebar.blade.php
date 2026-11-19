@@ -10,6 +10,7 @@
         'admin' => [
             ['label' => 'Dashboard', 'route' => 'admin.dashboard', 'active' => 'admin.dashboard', 'icon' => 'fa-solid fa-chart-pie'],
             ['label' => 'Pengguna', 'route' => 'admin.users.index', 'active' => 'admin.users.*', 'icon' => 'fa-solid fa-users'],
+            ['label' => 'Jenis Tukang', 'route' => 'admin.worker-types.index', 'active' => 'admin.worker-types.*', 'icon' => 'fa-solid fa-toolbox'],
         ],
         'tukang' => [
             ['label' => 'Dashboard', 'route' => 'tukang.dashboard', 'active' => 'tukang.dashboard', 'icon' => 'fa-solid fa-chart-pie'],
@@ -25,7 +26,7 @@
 @endphp
 
 <aside id="app-sidebar" aria-label="Sidebar"
-    class="fixed top-0 left-0 z-30 h-screen w-64 -translate-x-full border-e border-default bg-neutral-primary-soft pt-16 transition-transform sm:translate-x-0">
+    class="fixed top-0 left-0 z-40 h-screen w-64 -translate-x-full border-e border-default bg-neutral-primary-soft pt-16 transition-transform sm:translate-x-0">
     <div class="flex h-full flex-col overflow-y-auto px-3 py-4">
         <ul class="space-y-2 font-medium">
             @foreach ($sidebarMenu as $item)

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WorkerTypeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -26,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'roles:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'admin'])->name('dashboard');
     Route::resource('users', UserController::class);
+    Route::resource('worker-types', WorkerTypeController::class);
 });
 
 Route::middleware(['auth', 'roles:tukang'])->prefix('tukang')->name('tukang.')->group(function () {

@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-40 w-full border-b border-default bg-neutral-primary-soft">
+<nav class="fixed top-0 z-50 w-full border-b border-default bg-neutral-primary-soft">
     <div class="flex h-16 items-center justify-between px-3 lg:px-5">
         <div class="flex items-center justify-start gap-2">
             @hasSection('sidebar')

@@ -26,6 +26,7 @@
 
     <div class="flex flex-1 flex-col pt-16 {{ View::hasSection('sidebar') ? 'sm:ml-64' : '' }}">
         <main class="flex-1 p-4 sm:p-6">
+            @include('partials.flash')
             @yield('content')
         </main>
 
