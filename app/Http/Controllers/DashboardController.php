@@ -36,7 +36,10 @@ class DashboardController extends Controller
             'totalTukang' => $userCountsByRole->get('tukang', 0),
             'totalPelanggan' => $userCountsByRole->get('pelanggan', 0),
             'totalWorkerTypes' => WorkerType::query()->count(),
-            'latestUsers' => User::query()->latest()->limit(5)->get(['id', 'name', 'email', 'role', 'created_at']),
+            'latestUsers' => User::query()
+                ->latest()
+                ->paginate(5, ['id', 'name', 'email', 'role', 'created_at'])
+                ->withQueryString(),
         ]);
     }
 
@@ -54,7 +57,10 @@ class DashboardController extends Controller
     {
         return view('dashboard.pelanggan', [
             'totalWorkers' => Worker::query()->where('status', 'active')->count(),
-            'workerTypes' => WorkerType::query()->orderBy('name')->get(['id', 'name', 'description']),
+            'workerTypes' => WorkerType::query()
+                ->orderBy('name')
+                ->paginate(6, ['id', 'name', 'description'])
+                ->withQueryString(),
         ]);
     }
 }

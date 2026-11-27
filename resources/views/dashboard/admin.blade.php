@@ -149,6 +149,12 @@
                     <li class="py-3 text-sm text-body">Belum ada pengguna.</li>
                 @endforelse
             </ul>
+
+            @if ($latestUsers->hasPages())
+                <div class="mt-4 border-t border-default pt-4">
+                    {{ $latestUsers->onEachSide(1)->links() }}
+                </div>
+            @endif
         </div>
     </div>
 @endsection

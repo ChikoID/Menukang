@@ -19,7 +19,7 @@
         </div>
         <div class="rounded-base border border-default bg-neutral-primary-soft p-6 shadow-xs">
             <p class="text-sm font-medium text-body">Jenis Layanan</p>
-            <p class="mt-2 text-3xl font-semibold text-heading">{{ number_format($workerTypes->count()) }}</p>
+            <p class="mt-2 text-3xl font-semibold text-heading">{{ number_format($workerTypes->total()) }}</p>
         </div>
     </div>
 
@@ -36,5 +36,11 @@
                 <p class="text-sm text-body">Belum ada jenis layanan.</p>
             @endforelse
         </div>
+
+        @if ($workerTypes->hasPages())
+            <div class="mt-6 border-t border-default pt-4">
+                {{ $workerTypes->links() }}
+            </div>
+        @endif
     </div>
 @endsection

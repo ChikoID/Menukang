@@ -12,7 +12,7 @@
                 </button>
             @endif
 
-            <a href="{{ url('/') }}" class="flex items-center gap-2 ms-1 md:me-24">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 ms-1 md:me-24">
                 <span class="flex size-8 items-center justify-center rounded-base bg-brand text-white">
                     <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
                 </span>
