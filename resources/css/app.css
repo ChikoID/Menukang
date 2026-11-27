@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -8,32 +8,43 @@
 @plugin "flowbite/plugin";
 
 @theme {
-    /* Brand Foreground Colors */
-    --color-fg-brand-subtle: #174C3C;
-    --color-fg-brand: #174C3C;
-    --color-fg-brand-strong: #1E3B2F;
+    --color-fg-brand-subtle: #174c3c;
+    --color-fg-brand: #174c3c;
+    --color-fg-brand-strong: #1e3b2f;
 
-    /* Brand Colors */
-    --color-brand-softer: #F5F0E6;
-    --color-brand-soft: #FFFFFF;
-    --color-brand: #174C3C;
-    --color-brand-medium: #1E3B2F;
-    --color-brand-strong: #1E3B2F;
+    --color-brand-softer: #f5f0e6;
+    --color-brand-soft: #ffffff;
+    --color-brand: #174c3c;
+    --color-brand-medium: #1e3b2f;
+    --color-brand-strong: #1e3b2f;
 
-    /* Custom Color Palette */
-    --color-hijau: #174C3C;
-    --color-hijau-gelap: #1E3B2F;
-    --color-putih: #FFFFFF;
-    --color-krem: #F5F0E6;
+    --color-hijau: #174c3c;
+    --color-hijau-gelap: #1e3b2f;
+    --color-putih: #ffffff;
+    --color-krem: #f5f0e6;
 
-    /* Fonts */
-    --font-raleway: 'Raleway', sans-serif;
-    --font-open-sans: 'Open Sans', sans-serif;
+    --font-raleway: "Raleway", sans-serif;
+    --font-open-sans: "Open Sans", sans-serif;
 }
 
-/* Judul memakai Raleway, isi memakai Open Sans (diatur di <body> layout). */
 @layer base {
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: var(--font-raleway);
+    }
+}
+
+@media print {
+    nav,
+    aside,
+    footer,
+    button,
+    .no-print,
+    .print\:hidden {
+        display: none !important;
     }
 }
