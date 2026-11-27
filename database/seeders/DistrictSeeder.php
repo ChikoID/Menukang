@@ -94,7 +94,10 @@ class DistrictSeeder extends Seeder
         foreach ($districts as $district) {
             District::updateOrCreate(
                 ['name' => $district['name']],
-                $district
+                [
+                    'latitude' => $district['latitude'],
+                    'longitude' => $district['longitude'],
+                ]
             );
         }
     }

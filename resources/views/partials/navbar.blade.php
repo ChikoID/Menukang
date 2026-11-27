@@ -22,8 +22,24 @@
             </a>
         </div>
 
+        {{-- Menu navigasi opsional, diisi halaman lewat @section('navbar-menu') (contoh: landing page). --}}
+        @hasSection('navbar-menu')
+            <div id="navbar-menu"
+                class="absolute inset-x-0 top-16 hidden border-b border-default bg-neutral-primary-soft md:static md:flex md:flex-1 md:justify-center md:border-0 md:bg-transparent">
+                @yield('navbar-menu')
+            </div>
+        @endif
+
         <div class="flex items-center gap-2">
             @yield('navbar-actions')
+
+            @hasSection('navbar-menu')
+                <button type="button" data-collapse-toggle="navbar-menu" aria-controls="navbar-menu" aria-expanded="false"
+                    class="inline-flex items-center rounded-base p-2 text-body hover:bg-neutral-tertiary hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary md:hidden">
+                    <span class="sr-only">Buka menu navigasi</span>
+                    <i class="fa-solid fa-bars text-lg" aria-hidden="true"></i>
+                </button>
+            @endif
 
             @auth
                 <button type="button" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom-end"

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -13,11 +13,12 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    @fonts
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
 
-<body class="flex min-h-screen flex-col bg-neutral-secondary font-sans text-body antialiased">
+<body class="flex min-h-screen flex-col bg-neutral-secondary font-open-sans text-body antialiased">
     @include('partials.navbar')
 
     @hasSection('sidebar')
@@ -25,12 +26,18 @@
     @endif
 
     <div class="flex flex-1 flex-col pt-16 {{ View::hasSection('sidebar') ? 'sm:ml-64' : '' }}">
-        <main class="flex-1 p-4 sm:p-6">
+        {{-- Halaman bisa mengganti class <main> lewat @section('main-class'), misalnya tanpa padding untuk section selebar layar. --}}
+        <main class="@yield('main-class', 'flex-1 p-4 sm:p-6')">
             @include('partials.flash')
             @yield('content')
         </main>
 
-        @include('partials.footer')
+        {{-- Halaman bisa memakai footer sendiri lewat @section('footer'). --}}
+        @hasSection('footer')
+            @yield('footer')
+        @else
+            @include('partials.footer')
+        @endif
     </div>
 
     @stack('scripts')
