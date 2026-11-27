@@ -8,6 +8,25 @@
 @plugin "flowbite/plugin";
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Brand Foreground Colors */
+    --color-fg-brand-subtle: #174C3C;
+    --color-fg-brand: #174C3C;
+    --color-fg-brand-strong: #1E3B2F;
+
+    /* Brand Colors */
+    --color-brand-softer: #F5F0E6;
+    --color-brand-soft: #FFFFFF;
+    --color-brand: #174C3C;
+    --color-brand-medium: #1E3B2F;
+    --color-brand-strong: #1E3B2F;
+
+    /* Custom Color Palette */
+    --color-hijau: #174C3C;
+    --color-hijau-gelap: #1E3B2F;
+    --color-putih: #FFFFFF;
+    --color-krem: #F5F0E6;
+
+    /* Fonts */
+    --font-raleway: 'Raleway', sans-serif;
+    --font-open-sans: 'Open Sans', sans-serif;
 }
