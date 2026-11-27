@@ -12,9 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('districts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        $table->id();
+        $table->string('name')->unique();
+        $table->decimal('latitude', 10, 7);
+        $table->decimal('longitude', 10, 7);
+        $table->timestamps();
+         });
     }
 
     /**
