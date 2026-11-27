@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('landing.index')->name('home');
+    return view('landing.index');
 });
 
 Route::middleware(['guest'])->group(function () {
